@@ -1,0 +1,3 @@
+- Use Super+Shift+C to Launch the color picker.
+- Needs Gnome-Terminal to run
+- Tested of Gnome 49.3
