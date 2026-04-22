@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.color-picker@gnome" path="/org/gnome/shell/extensions/color-picker@gnome/">
+    <key name="color-picker-bind" type="as">
+      <default><![CDATA[['<Super><Shift>c']]]></default>
+      <summary>Color Picker Keyboard Shortcut</summary>
+    </key>
+  </schema>
+</schemalist>
