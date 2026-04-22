@@ -1,3 +1,3 @@
-- Use Super+Shift+C to Launch the color picker.
+- Use Super+Shift+C to Launch the color picker. (can be set in schemas/org.gnome.shell.extensions.color-picker@gnome.gschema.xml)
 - Needs Gnome-Terminal to run
 - Tested of Gnome 49.3
