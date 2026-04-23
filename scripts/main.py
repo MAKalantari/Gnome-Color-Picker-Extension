@@ -6,7 +6,6 @@ from PIL import Image
 from Xlib import display
 import pyperclip
 import tempfile
-import os
 import re
 
 def create_rect_image(width=32, height=32, color=(0, 0, 0, 255)):

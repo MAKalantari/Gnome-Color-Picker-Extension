@@ -2,7 +2,7 @@
   "name": "Color Picker",
   "description": "Color Picker Extension for Gnome Shell",
   "uuid": "color-picker@gnome",
-  "shell-version": ["48", "49"],
+  "shell-version": ["48", "49", "50"],
   "url": "https://github.com/MAKalantari/gnome-color-picker",
   "icon": "color-select-symbolic",
   "version": 1
