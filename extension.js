@@ -9,6 +9,23 @@ import * as Util from "resource:///org/gnome/shell/misc/util.js";
 import * as Main from "resource:///org/gnome/shell/ui/main.js";
 import * as PanelMenu from "resource:///org/gnome/shell/ui/panelMenu.js";
 
+function runScript(scriptPath) {
+  // Quiet, no terminal, no output
+  let proc = new Gio.Subprocess({
+    argv: [scriptPath],
+    flags: Gio.SubprocessFlags.NONE, // or STDOUT/STDERR silence below
+  });
+
+  // If you want to silence output completely:
+  // let proc = new Gio.Subprocess({
+  //     argv: [scriptPath],
+  //     flags: Gio.SubprocessFlags.STDOUT_SILENCE | Gio.SubprocessFlags.STDERR_SILENCE,
+  // });
+
+  proc.init(null);
+  proc.wait_async(null, null);
+}
+
 export default class ColorPickerExtension extends Extension {
   enable() {
     this._indicator = new ColorPickerIndicator();
@@ -23,11 +40,11 @@ export default class ColorPickerExtension extends Extension {
       Shell.ActionMode.NORMAL | Shell.ActionMode.OVERVIEW,
       () => {
         // Action to perform when shortcut is pressed
-
         let path =
           Extension.lookupByUUID("color-picker@gnome").path +
           "/scripts/main.py";
-        Util.spawn(["gnome-terminal", "--", "bash", "-c", path, "; exec bash"]);
+        runScript(path);
+        //Util.spawn(["gnome-terminal", "--", "bash", "-c", path, "; exec bash"]);
       },
     );
   }
@@ -62,7 +79,8 @@ const ColorPickerIndicator = GObject.registerClass(
 
     _runColorPicker() {
       let path = this._getExtensionPath() + "/scripts/main.py";
-      Util.spawn(["gnome-terminal", "--", "bash", "-c", path, "; exec bash"]);
+      // Util.spawn(["gnome-terminal", "--", "bash", "-c", path, "; exec bash"]);
+      runScript(path);
     }
   },
 );
